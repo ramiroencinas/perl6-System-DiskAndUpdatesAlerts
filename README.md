@@ -1,5 +1,7 @@
 # System::DiskAndUpdatesAlerts
 
+[![Build Status](https://travis-ci.org/ramiroencinas/perl6-System-DiskAndUpdatesAlerts.svg?branch=master)](https://travis-ci.org/ramiroencinas/perl6-System-DiskAndUpdatesAlerts)
+
 Send email alert about disk capacity and pending updates.
 
 ## Required Perl 6 modules:
@@ -16,7 +18,6 @@ Send email alert about disk capacity and pending updates.
 ## Example:
 ```Perl6
 use v6;
-use lib 'lib';
 use System::DiskAndUpdatesAlerts;
 
 my $smtp-server = 'smtp.foo.com';
