@@ -15,6 +15,11 @@ Send email alert about disk capacity and pending updates.
 - Reports if there are pending updates.
 - Nice HTML table format.
 
+## Installing the module ##
+
+    zef update
+    zef install System::DiskAndUpdatesAlerts
+
 ## Example:
 ```Perl6
 use v6;
