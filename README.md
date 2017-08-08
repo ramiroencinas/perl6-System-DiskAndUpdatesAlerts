@@ -4,33 +4,43 @@
 
 Send email alert about disk capacity and pending updates.
 
-## Required Perl 6 modules:
-
-- FileSystem::Capacity
-- Package::Updates
-
-## Features:
+## Features
 
 - Reports when exceed `$disk-limit-percent` capacity at any mount point or letter drive.
 - Reports the pending updates from popular GNU/Linux package managers or Windows Update.
 - Nice HTML table format.
 
-## Installing the module ##
+## Installing the module
 
     zef update
     zef install System::DiskAndUpdatesAlerts
+
+## Module dependencies
+
+    - FileSystem::Capacity
+    - Package::Updates
 
 ## Example:
 ```Perl6
 use v6;
 use System::DiskAndUpdatesAlerts;
 
-my $smtp-server = 'smtp.foo.com'; # Target email server
-my $smtp-port = 25; # SMTP port from target email server
-my $from = 'alerts@foo.com'; # Whatever but descriptive
-my $to = 'sysadmin@foo.com'; # The receiver of alerts
-my $disk-limit-percent = 75; # Reaching this percent reports the disk alert
+# Target email server
+my $smtp-server = 'smtp.foo.com';
 
+# SMTP port from target email server
+my $smtp-port = 25;
+
+# alert from address; whatever but descriptive
+my $from = 'alerts@foo.com';
+
+# The receiver of alerts
+my $to = 'sysadmin@foo.com';
+
+# Reaching this percent reports the disk alert
+my $disk-limit-percent = 75;
+
+# Send alerts
 send-alerts(:$smtp-server, :$smtp-port, :$from, :$to, :$disk-limit-percent);
 ```
 
@@ -38,7 +48,7 @@ send-alerts(:$smtp-server, :$smtp-port, :$from, :$to, :$disk-limit-percent);
 
 The `get-updates.ps1` Powershell script must be located in the same directory as the Perl6 script.
 
-## SMTP considerations
+## SMTP client considerations
 
 - Sender authentication is not supported.
 - Encrypted transmission is not supported.
